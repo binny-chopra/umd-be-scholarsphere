@@ -1,0 +1,27 @@
+DB_HOST = "localhost"
+DB_USER = "root"
+DB_PASSWORD = "root"
+DB_NAME = "ss"
+
+REGISTERED_STUDENT_TABLE = "registered_students"
+
+CONN_SUCCESSFUL = "Connection Successful"
+CONN_FAILED = "Connection Failed"
+
+NEW_STUDENT_ADDED = "New Student Added Successfully"
+NO_NEW_STUDENT_ADDED = "No New Student Added"
+UPDATED_STUDENT_RECORD = "Student Record Updated Successfully"
+DELETED_STUDENT_RECORD = "Student Record Deleted Successfully"
+NO_DATA_FOUND = "No Data Found"
+NOTHING_TO_UPDATE = "Nothing To Update"
+NOTHING_TO_DELETE = "Nothing To Delete"
+
+STUDENT_ID = "studentId"
+STUDENT_NAME = "studentName"
+STUDENT_MAJOR = "studentMajor"
+GRAD_DATE = "gradDate"
+STUDENT_EMAIL = "studentEmail"
+MAJORITY_CLASSES = "majorityClasses"
+STATE = "state"
+COUNTY = "county"
+GPA = "gpa"
