@@ -6,18 +6,6 @@ from flask import make_response
 class students_model:
     def __init__(self):
         common.conn_setup(self)
-        # try:
-        #     self.conn = mysql.connector.connect(
-        #         host=app_constants.DB_HOST,
-        #         user=app_constants.DB_USER,
-        #         password=app_constants.DB_PASSWORD,
-        #         database=app_constants.DB_NAME,
-        #     )
-        #     self.conn.autocommit = True
-        #     self.cursor = self.conn.cursor(dictionary=True)
-        #     print(app_constants.CONN_SUCCESSFUL)
-        # except:
-        #     print(app_constants.CONN_FAILED)
 
     def registered_students_list_model(self):
         self.cursor.execute(f"SELECT * FROM {app_constants.REGISTERED_STUDENT_TABLE}")
@@ -34,10 +22,12 @@ class students_model:
             self.cursor.execute(
                 f"INSERT INTO {app_constants.REGISTERED_STUDENT_TABLE}({app_constants.STUDENT_ID}, {app_constants.STUDENT_NAME}, {app_constants.STUDENT_MAJOR}, {app_constants.GRAD_DATE}, {app_constants.STUDENT_EMAIL}, {app_constants.MAJORITY_CLASSES}, {app_constants.STATE}, {app_constants.COUNTY}, {app_constants.GPA}) VALUES ('{data['studentId']}', '{data['studentName']}', '{data['studentMajor']}', '{data['gradDate']}', '{data['studentEmail']}', '{data['majorityClasses']}', '{data['state']}', '{data['county']}', '{data['gpa']}')"
             )
-            return make_response(
+            response = make_response(
                 {"message": f"{app_constants.NEW_STUDENT_ADDED} {data['studentId']}"},
                 201,
             )
+            response.headers["Access-Control-Allow-Origin"] = "*"
+            return response
         except:
             return make_response({"message": f"{app_constants.NO_NEW_STUDENT_ADDED}"})
 

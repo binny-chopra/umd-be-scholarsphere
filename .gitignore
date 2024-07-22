@@ -1,2 +1,10 @@
 .venv
 /venv
+static
+assets
+constants/__pycache__
+controller/__pycache__
+model/__pycache__
+utility/__pycache__
+__pycache__
+.vscode
